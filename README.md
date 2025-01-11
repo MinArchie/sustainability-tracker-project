@@ -39,7 +39,7 @@ Install Backend Dependencies.
 npm install
 ```
 
-```package.json``` contains list of dependencies, can still follow this to download:
+```package.json``` contains list of dependencies, if faced with any issues, can still follow this to download:
 
 - install express js
     ```bash
