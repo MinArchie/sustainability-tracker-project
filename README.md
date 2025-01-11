@@ -23,7 +23,7 @@ This project consists of two parts: the frontend and the backend. The frontend i
 Clone the repository and navigate to repository:
 ```bash
 git clone https://github.com/MinArchie/sustainability-tracker-project.git
-cd sustainability-tracker
+cd sustainability-tracker-project
 ```
 
 ## Backend: Getting Started
