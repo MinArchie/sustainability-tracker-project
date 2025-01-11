@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "action": "Carpooling Hi",
+    "date": "2025-01-08",
+    "points": 50
+  },
+  {
+    "id": 2,
+    "action": "Recycling",
+    "date": "2025-01-08",
+    "points": 100
+  },
+  {
+    "id": 3,
+    "action": "Upcycling",
+    "date": "2025-01-12",
+    "points": 20
+  },
+  {
+    "id": 4,
+    "action": "Planting Trees",
+    "date": "2025-01-15",
+    "points": 80
+  },
+  {
+    "id": 5,
+    "action": "Using Public Transport",
+    "date": "2025-01-17",
+    "points": 60
+  },
+  {
+    "id": 6,
+    "action": "Reducing Water Use",
+    "date": "2025-01-20",
+    "points": 40
+  },
+  {
+    "id": 7,
+    "action": "Composting",
+    "date": "2025-01-22",
+    "points": 70
+  },
+  {
+    "id": 8,
+    "action": "Installing Solar Panels",
+    "date": "2025-01-25",
+    "points": 150
+  },
+  {
+    "id": 9,
+    "action": "Participating in a Clean-Up Drive",
+    "date": "2025-01-27",
+    "points": 90
+  },
+  {
+    "id": 10,
+    "action": "Buying Local Produce",
+    "date": "2025-01-30",
+    "points": 30
+  },
+  {
+    "id": 11,
+    "action": "Switching to LED Bulbs",
+    "date": "2025-02-01",
+    "points": 35
+  },
+  {
+    "id": 12,
+    "action": "Donating Old Clothes",
+    "date": "2025-02-03",
+    "points": 25
+  },
+  {
+    "id": 13,
+    "action": "Avoiding Single-Use Plastics",
+    "date": "2025-02-05",
+    "points": 50
+  },
+  {
+    "id": 14,
+    "action": "Eco-Friendly Shopping",
+    "date": "2025-02-07",
+    "points": 55
+  },
+  {
+    "id": 15,
+    "action": "Using Energy-Efficient Appliances",
+    "date": "2025-02-09",
+    "points": 65
+  },
+  {
+    "id": 16,
+    "action": "Supporting Renewable Energy",
+    "date": "2025-02-12",
+    "points": 120
+  },
+  {
+    "id": 17,
+    "action": "Reducing Paper Use",
+    "date": "2025-02-14",
+    "points": 45
+  },
+  {
+    "id": 18,
+    "action": "Biking to Work",
+    "date": "2025-02-16",
+    "points": 75
+  },
+  {
+    "id": 19,
+    "action": "Conducting Energy Audits",
+    "date": "2025-02-18",
+    "points": 85
+  },
+  {
+    "id": 20,
+    "action": "Educating Others on Sustainability",
+    "date": "2025-02-20",
+    "points": 100
+  },
+  {
+    "id": 21,
+    "action": "Using Reusable Bags",
+    "date": "2025-02-22",
+    "points": 20
+  },
+  {
+    "id": 22,
+    "action": "Reducing Food Waste",
+    "date": "2025-02-24",
+    "points": 50
+  },
+  {
+    "id": 23,
+    "action": "Participating in Earth Hour",
+    "date": "2025-02-26",
+    "points": 30
+  }
+]
