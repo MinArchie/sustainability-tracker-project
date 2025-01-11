@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
+        // homepage (home folder)
         path: '',
         pathMatch: 'full',
         loadComponent: () => {
@@ -9,6 +10,7 @@ export const routes: Routes = [
         }
     },
     {
+        // view action history page (actions folder)
         path: 'actions',
         loadComponent: () => {
             return import('./actions/actions.component').then(
@@ -17,6 +19,7 @@ export const routes: Routes = [
         }
     },
     {
+        // post new action page (add-action folder)
         path: 'add-actions',
         loadComponent: () => {
             return import('./add-actions/add-actions.component').then(

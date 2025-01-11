@@ -3,6 +3,7 @@
         <li class="page-item" [ngClass]="{disabled: currentPage===1}" style="cursor: pointer;">
             <a class="page-link" (click)="pageClicked(currentPage - 1)">Previous</a>
         </li>
+        <!-- Calculate number of pages based on number of data items -->
         <li 
             (click)="pageClicked(page)"
             *ngFor="let page of pages" 

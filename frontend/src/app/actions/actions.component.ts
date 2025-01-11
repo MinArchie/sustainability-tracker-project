@@ -14,16 +14,18 @@ import { PaginationComponent } from "../components/pagination/pagination.compone
 })
 export class ActionsComponent implements OnInit {
   actionService = inject(ActionsService);
-  actionItems = signal<Array<Action>>([]);
+  actionItems = signal<Array<Action>>([]);  // signal to store action items
 
   totalItems = signal(0);
   currentPage = 1
   itemsPerPage = 10
 
+  // method handles page changes
   changePage(page: number) {
     this.currentPage=page
   }
 
+  //  OnInit lifecycle hook to fetch actions data from API
   ngOnInit(): void {
     this.actionService.getActionsFromApi()
       .pipe(
@@ -43,6 +45,7 @@ export class ActionsComponent implements OnInit {
       });
   }
 
+  // Get the paginated data based on current page and items per page
   get paginatedData() {
     const start = (this.currentPage-1) * this.itemsPerPage
     const end = start + this.itemsPerPage
@@ -50,6 +53,7 @@ export class ActionsComponent implements OnInit {
     return this.actionItems().slice(start,end)
   }
 
+  // Calculate the total points from the action items
   getTotalPoints(): number {
     return this.actionItems().reduce((sum, item) => sum + item.points, 0)
   }

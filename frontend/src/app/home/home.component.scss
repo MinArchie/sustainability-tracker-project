@@ -1,4 +1,4 @@
-.left-content {
+.main-content {
     display: flex;
     padding-top: 2.5rem;
     align-items: flex-start;
@@ -17,6 +17,7 @@
     height: 500px;
 }
 
+// layer images one above the other
 .background-image {
     z-index: 1;
 }
@@ -25,6 +26,7 @@
     z-index: 2;
 }
 
+// styling for main content heading text 
 .content-text h1 {
     font-size: 4rem;
     padding-top: 2.56rem;
@@ -36,12 +38,14 @@
     color: #588157;
 }
 
+// styling for main content supporting text
 .content-text p {
     margin-bottom: 1.56rem;
     font-size: 1rem;
     padding-left: 4rem;
 }
 
+// styling for redirect links
 .content-text a {
     padding: 1.25rem 2.56rem;
     text-decoration: none;
@@ -52,7 +56,7 @@
     margin-left: 4rem;
 }
 
-
+// POST link
 .first-link {
     background-color: #588157;
     color: white;
@@ -64,6 +68,8 @@
     color: black;
 }
 
+
+// GET link
 .second-link {
     background-color: #dad7cd;
     color: black;

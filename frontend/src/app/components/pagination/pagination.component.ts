@@ -15,28 +15,28 @@ export class PaginationComponent implements OnInit, OnChanges {
   @Output() onClick: EventEmitter<number>= new EventEmitter()
   
   totalPages: number = 0;
-  pages: number[] = [];
+  pages: number[] = [];  // array to store number of pages
 
   ngOnInit(): void {
-    this.calculatePages();
+    this.calculatePages();  // calculate pages when component initalizes 
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['totalItems'] || changes['itemsPerPage']) {
-      this.calculatePages();
+      this.calculatePages();  // recalculate pages if input changes 
     }
   }
 
   private calculatePages(): void {
     if (this.totalItems && this.itemsPerPage) {
-      this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);
-      this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);
+      this.totalPages = Math.ceil(this.totalItems / this.itemsPerPage);       // calculate total pages
+      this.pages = Array.from({ length: this.totalPages }, (_, i) => i + 1);  // create array to store number of pages
     }
   }
 
   pageClicked(page: number) {
     if (page<=this.totalPages) {
-      this.onClick.emit(page)
+      this.onClick.emit(page)   // keep track of page
     }
   } 
 }

@@ -15,16 +15,25 @@ import { SuccessModalComponent } from '../components/success-modal/success-modal
 export class AddActionsComponent {
   addActionForm!: FormGroup
   errorMessage: string = ''
-  showSuccessModal = false
+  showSuccessModal = false  // Control Display of Success Modal
 
   constructor(
     private fb: FormBuilder,
-    private actionsService: ActionsService,
+    private actionsService: ActionsService,  // Handles all API Calls
     private router: Router
   ) {
     this.initateForm()
   }
 
+  
+  /*
+  +-------------------------------------------------+
+  |  post form validatiors.                         |
+  |  action: string, 3-50 characters, required.     |
+  |  date: date, iso format [yyyy/MM/dd], required. |
+  |  points: number, between 5-200, requried.       |
+  +-------------------------------------------------+
+  */
   initateForm() {
     this.addActionForm = this.fb.group({
       action: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
@@ -37,18 +46,18 @@ export class AddActionsComponent {
     if (this.addActionForm.valid) {
       const formData = this.addActionForm.value;
 
+      // prepare data for submission
       const formattedData = {
         ...formData,
         date: formData.date
       }
 
+      // Call the service to add the action to the API
       this.actionsService.addActionToApi(formattedData).subscribe({
         next: (response) => {
           console.log('Action added Succesfully: ', response)
-          this.showSuccessModal = true
-          this.addActionForm.reset()
-
-          // do we want to navigate back to /actions?
+          this.showSuccessModal = true  // show success modal
+          this.addActionForm.reset()    // reset form
         },
         error: (err) => {
           console.error('Error adding action:', err);
@@ -59,8 +68,9 @@ export class AddActionsComponent {
     }
   }
 
+  // close the success modal and reset form
   closeSuccessModal() {
     this.showSuccessModal = false;
-    this.addActionForm.reset();
+    this.addActionForm.reset();  // reset form when closed
   }
 }
