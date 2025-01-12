@@ -32,7 +32,8 @@
                 <label for="date">Date</label>
                 <!-- Error Messages for Date Field -->
                 <div class="error-message" *ngIf="addActionForm.get('date')?.invalid && addActionForm.get('date')?.touched">
-                    <small *ngIf="addActionForm.get('date')?.errors?.['required']">Date is required</small>
+                    <small *ngIf="addActionForm.get('date')?.errors?.['required']">Date is required to be valid</small>
+                    <small *ngIf="addActionForm.get('date')?.errors?.['futureDate']">Date cannot be in the future</small>
                 </div>
             </div>
 

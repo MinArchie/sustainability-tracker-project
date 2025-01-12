@@ -39,7 +39,7 @@ export class AddActionsComponent {
   initateForm() {
     this.addActionForm = this.fb.group({
       action: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      date: ['', Validators.required],
+      date: ['', [Validators.required, this.futureDateValidator]],
       points: ['', [Validators.required, Validators.min(5), Validators.max(200)]]
     })
   }
@@ -50,6 +50,17 @@ export class AddActionsComponent {
     const month = (today.getMonth() + 1).toString().padStart(2, '0');
     const day = today.getDate().toString().padStart(2, '0');
     return `${year}-${month}-${day}`;
+  }
+
+  futureDateValidator(control: any) {
+    const selectedDate = new Date(control.value);
+    const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0); // Set to midnight to ignore time part
+
+    if (selectedDate > currentDate) {
+      return { futureDate: true }; // Add 'futureDate' error if the date is in the future
+    }
+    return null;
   }
 
   onSubmit() {
