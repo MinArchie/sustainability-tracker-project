@@ -22,8 +22,8 @@ This project consists of two parts: the frontend and the backend. The frontend i
 ## Clone Repository
 Clone the repository and navigate to repository:
 ```bash
-git clone <repository-url>
-cd sustainability-tracker
+git clone https://github.com/MinArchie/sustainability-tracker-project.git
+cd sustainability-tracker-project
 ```
 
 ## Backend: Getting Started
@@ -39,7 +39,7 @@ Install Backend Dependencies.
 npm install
 ```
 
-```package.json``` contains list of dependencies, can still follow this to download:
+```package.json``` contains list of dependencies, if faced with any issues, can still follow this to download:
 
 - install express js
     ```bash
@@ -120,6 +120,7 @@ sustainability-tracker-api
 - ```data.json```: Stores sustainability actions.
 
 ### Frontend
+![screenshot](frontend/public/images/Frontend-Strucutre.png)
 ```arduino
 SUSTAINABILITY-TRACKER
 ├── public
