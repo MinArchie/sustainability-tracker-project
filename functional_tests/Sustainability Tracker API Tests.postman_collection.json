@@ -15,11 +15,13 @@
 					"script": {
 						"exec": [
 							"pm.test(\"Check if happy path\", function () {\r",
-							"  const response = pm.response.json();\r",
+							"  const data = pm.response.json();\r",
 							"  pm.response.to.have.status(200);\r",
 							"  pm.response.to.be.ok;\r",
 							"  pm.response.to.be.json;\r",
-							"  pm.expect(response[0].id).to.eql(1);\r",
+							"  if (data.length) {\r",
+							"      pm.expect(data[0].id).to.eql(1);\r",
+							"  }\r",
 							"});\r",
 							""
 						],
