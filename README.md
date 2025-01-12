@@ -39,7 +39,7 @@ cd sustainability-tracker-project
 
 ### a. Installation 
 ```bash
-cd sustainability-tracker-api
+cd api
 
 npm install
 ```
@@ -54,9 +54,9 @@ npm install
 
 ### b. Running the Server
 ```bash
-node index.js
+node server.js
 ```
-Use ```nodemon index.js``` if nodemon is installed.
+Use ```nodemon server.js``` if nodemon is installed.
 
 Server runs on ```localhost:3000``` by default, unless port is specifed by PATH.
 
@@ -97,9 +97,9 @@ The files with ```.specs.ts``` extension hold the default tests
 Using the <b>Postman Desktop Application</b> or <b>VS Code Extension</b>, follow these steps to vefiy api endpoints:
 - Start the backend server 
     ```bash
-    cd sustainability-tracker-api
+    cd api
 
-    node index.js
+    node server.js
     ```
 - Import [test collection](/functional_tests/Sustainability%20Tracker%20API%20Tests.postman_collection.json) (/functional_tests/)into Postman. 
 - Run Collection
@@ -112,12 +112,12 @@ Using the <b>Postman Desktop Application</b> or <b>VS Code Extension</b>, follow
 ## Project Structure
 ### Backend
 ```
-sustainability-tracker-api
-├── index.js
+api
+├── server.js
 ├── data.json
 ├── package.json
 ```
-- ```index.js```: Entry point for the backend application.
+- ```server.js```: Entry point for the backend application.
 - ```data.json```: Stores sustainability actions.
 
 ### Frontend
