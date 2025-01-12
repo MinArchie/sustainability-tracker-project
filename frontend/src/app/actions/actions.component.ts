@@ -14,7 +14,7 @@ import { PaginationComponent } from "../components/pagination/pagination.compone
 })
 export class ActionsComponent implements OnInit {
   actionService = inject(ActionsService);
-  actionItems = signal<Array<Action>>([]);  // signal to store action items
+  actionItems = signal<Array<Action>>([]);  // Signal to store action items
 
   totalItems = signal(0);
   currentPage = 1
@@ -25,7 +25,7 @@ export class ActionsComponent implements OnInit {
     this.currentPage=page
   }
 
-  //  OnInit lifecycle hook to fetch actions data from API
+  // OnInit lifecycle hook to fetch actions data from API
   ngOnInit(): void {
     this.actionService.getActionsFromApi()
       .pipe(

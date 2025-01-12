@@ -1,4 +1,4 @@
-// structure of the json data item. 
+// Structure of the JSON data item. 
 export type Action = {
     id: number;
     action: string;

@@ -10,15 +10,15 @@ import { CommonModule } from '@angular/common';
   styleUrl: './success-modal.component.scss'
 })
 export class SuccessModalComponent {
-  @Output() closeModal = new EventEmitter<void>();  // event emmiter notifes when modal should be closed
+  @Output() closeModal = new EventEmitter<void>();  // Event emmiter notifes when modal should be closed
 
-  constructor(private router: Router) {}  // inject router to naviagte between routes 
+  constructor(private router: Router) {}  // Inject router to naviagte between routes 
 
   onAddMore() {
-    this.closeModal.emit();  // emit event to close modal
+    this.closeModal.emit();  // Emit event to close modal
   }
 
   onViewHistory() {
-    this.router.navigate(['/actions']);  // redirect to /actions page when user clicks 'view history'
+    this.router.navigate(['/actions']);  // Redirect to /actions page when user clicks 'view history'
   }
 }

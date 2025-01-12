@@ -24,14 +24,15 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 - [Angular CLI](https://angular.io/cli) (version 17.x or higher)
 - [Express.js](https://expressjs.com/) (Backend)
 
-## Clone Repository
+## Usage
 Clone the repository and navigate to repository:
 ```bash
 git clone https://github.com/MinArchie/sustainability-tracker-project.git
+
 cd sustainability-tracker-project
 ```
 
-## Backend: Getting Started
+## Backend: Quick Start
 
 ### Installation 
 Navigate to the backend folder:
@@ -45,14 +46,12 @@ npm install
 ```
 
 ```npm install``` should automatically take care of installing any dependencies. 
-```package.json``` contains list of dependencies.
 
-If faced with any issues regarding missing packages, can still follow this commands to install all of them:
-
-- install ```express.js```, ```joi``` (validator), ```cors``` (for allowing api to be used), ```nodemon``` (nodemon, optional for live-reloading).
-    ```bash
-    npm install express joi cors nodemon
-    ```
+Core Dependecies:
+- ```express.js```
+- ```joi``` (validator)
+- ```cors``` (for allowing api to be used)
+- ```nodemon``` (nodemon, optional for live-reloading).
 
 ### Running the Server
 1. Start the server
@@ -67,19 +66,27 @@ If faced with any issues regarding missing packages, can still follow this comma
 
 ### API Endpoints
 - ```GET:``` ```/api/actions```: Fetch all sustainability actions
+    - Response Body Sample:
+        ```json
+        {
+            "id": 1,
+            "action": "Carpooling",
+            "date": "2024-08-12",
+            "points": 20
+        }
+        ```
 - ```POST:``` ```/api/actions```: Add a new sustainability action
-- Request body:
-    ```json
-    {
-        "id": 1,
-        "action": "Carpooling",
-        "date": "2024-08-12",
-        "points": 20
-    }
-    ```
+    - Request Body Sample:
+        ```json
+        {
+            "action": "Carpooling",
+            "date": "2024-08-12",
+            "points": 20
+        }
+        ```
 
 
-## Frontend: Getting Started
+## Frontend: Quick Start
 1. Navigate to Frontend Folder
     ```bash
     cd frontend
@@ -88,10 +95,7 @@ If faced with any issues regarding missing packages, can still follow this comma
     ```bash
     npm install
     ```
-    - All dependencies should be installed. If faced with any missing dependencies for bootstrap, can follow this to install bootstrap
-        ```bash
-        npm i bootstrap@5.3.3
-        ```
+    - All dependencies should be installed. Core Dependency is ```Bootstrap```
 
 
 ### Running the Application
@@ -139,9 +143,16 @@ SUSTAINABILITY-TRACKER
 - ```public```: assets (svg, images, etc)
 
 
-## Running unit tests:
+## Running Unit Tests:
 Run the following command to start:
 ```bash
-npm run tests
+cd frontend
+npm run test
 ```
-the files with specs.ts extension hold the default tests
+The files with ```.specs.ts``` extension hold the default tests
+
+## Running Functional Tests for API Endpoints
+Using the <b>Postman Desktop Application</b> or <b>VS Code Extension</b>, follow these steps to vefiy api endpoints:
+- Start the server 
+- Import [test collection](/functional_tests/Sustainability%20Tracker%20API%20Tests.postman_collection.json) into Postman. 
+- Run Collection

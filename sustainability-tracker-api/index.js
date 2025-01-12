@@ -8,23 +8,28 @@ const app = express()
 app.use(express.json())
 app.use(cors());
 
-// centerlized error handling
+// Handle bad JSON Requests
 app.use((err, req, res, next) => {
   if (err instanceof SyntaxError && err.status == 400 && 'body' in err) {
     console.error(err)
     return res.status(400).send({ status: 400, message: err.message })
   }
-  console.error(err.stack)
-  res.status(500).json({ error: 'Internal Server Error', message:err.message })
 })
 
+// Handle unexpected errors with a 500 response
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).json({ error: 'Internal Server Error', message: 'Something went wrong. Please try later.' })
+})
+
+// Service class to manage actions data
 class ActionService {
   constructor(dataFile) {
     this.dataFile = dataFile
     this.actions = this.loadData() || []
   }
 
-  // read from json file
+  // Load actions from JSON file
   loadData() {
     try {
       const data = fs.readFileSync(this.dataFile, 'utf8')
@@ -35,21 +40,22 @@ class ActionService {
     }
   }
 
-  // write into json file
+  // Save actions to JSON file
   saveData() {
     fs.writeFileSync(this.dataFile, JSON.stringify(this.actions, null, 2), 'utf8')
   }
 
-  // return json data
+  // Get all actions
   getActions() {
     return this.actions
   }
 
+  // Get action by ID
   getActionById(id) {
     return this.actions.find(action => action.id === id)
   }
 
-  // add into json file
+  // Add new action
   addAction(actionData) {
     const action = {
       id: this.actions.length + 1,
@@ -68,37 +74,24 @@ class ActionService {
 const actionService = new ActionService('./data.json')
 
 
-/*
-+-------------------------------------------------+
-|  post form validatiors. Using JOI               |
-|  action: string, 3-50 characters, required.     |
-|  date: date, iso format [yyyy/MM/dd], required. |
-|  points: number, between 5-200, requried.       |
-+-------------------------------------------------+
-*/
+// Validation schema for actions using Joi
 const schema = Joi.object({
   action: Joi.string().min(3).max(50).required(),
   date: Joi.date().iso().required(),
   points: Joi.number().integer().min(5).max(200).required()
 })
 
-/*
-const schema = Joi.object({
-  action: Joi.string().min(3).max(50).required(),
-  date: Joi.date().iso().required(),
-  points: Joi.number().integer().min(5).max(200).required()
-})
-*/
 
 
 
 // ROUTES
-// get all actions
+
+// Get all actions
 app.get('/api/actions', (req, res) => {
   res.json(actionService.getActions())
 })
 
-// get action by id
+// Get action by ID
 app.get('/api/actions/:id', (req, res) => {
   const action = actionService.getActionById(parseInt(req.params.id))
   if (!action) {
@@ -108,7 +101,7 @@ app.get('/api/actions/:id', (req, res) => {
   }
 })
 
-// post an action
+// Add new action
 app.post('/api/actions', (req, res) => {
   const result = schema.validate(req.body)
 
@@ -117,12 +110,11 @@ app.post('/api/actions', (req, res) => {
     return
   }
 
-
   const action = actionService.addAction(req.body)
   res.status(201).json(action)
 })
 
 
-// Configure Port. Default port: 3000
+// Configure server to listen on port
 const port = process.env.PORT || 3000
 app.listen(port, () => console.log(`Listening to port ${port}`))

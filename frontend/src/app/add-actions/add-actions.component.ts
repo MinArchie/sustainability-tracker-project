@@ -27,15 +27,7 @@ export class AddActionsComponent {
     this.maxDate = this.getCurrentDate();
   }
 
-  
-  /*
-  +-------------------------------------------------+
-  |  post form validatiors.                         |
-  |  action: string, 3-50 characters, required.     |
-  |  date: date, iso format [yyyy/MM/dd], required. |
-  |  points: number, between 5-200, requried.       |
-  +-------------------------------------------------+
-  */
+  // Initialize the form with required fields and validators
   initateForm() {
     this.addActionForm = this.fb.group({
       action: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
@@ -44,6 +36,7 @@ export class AddActionsComponent {
     })
   }
 
+  // Get the current date in 'yyyy-mm-dd' format
   getCurrentDate() {
     const today = new Date();
     const year = today.getFullYear();
@@ -52,6 +45,7 @@ export class AddActionsComponent {
     return `${year}-${month}-${day}`;
   }
 
+  // Validator to check if the selected date is not in the future
   futureDateValidator(control: any) {
     const selectedDate = new Date(control.value);
     const currentDate = new Date();
@@ -63,11 +57,12 @@ export class AddActionsComponent {
     return null;
   }
 
+  // Handle form submission to add a new action
   onSubmit() {
     if (this.addActionForm.valid) {
       const formData = this.addActionForm.value;
 
-      // prepare data for submission
+      // Prepare data for submission
       const formattedData = {
         ...formData,
         date: formData.date
@@ -77,8 +72,8 @@ export class AddActionsComponent {
       this.actionsService.addActionToApi(formattedData).subscribe({
         next: (response) => {
           console.log('Action added Succesfully: ', response)
-          this.showSuccessModal = true  // show success modal
-          this.addActionForm.reset()    // reset form
+          this.showSuccessModal = true  // Show success modal
+          this.addActionForm.reset()    // Reset form
         },
         error: (err) => {
           console.error('Error adding action:', err);
@@ -89,9 +84,9 @@ export class AddActionsComponent {
     }
   }
 
-  // close the success modal and reset form
+  // Close the success modal and reset form
   closeSuccessModal() {
     this.showSuccessModal = false;
-    this.addActionForm.reset();  // reset form when closed
+    this.addActionForm.reset();  // Reset form when closed
   }
 }
