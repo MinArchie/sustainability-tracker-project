@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "317bdace-54d2-4645-a1d7-7e6001a866ab",
+		"name": "Sustainability Tracker API Tests",
+		"description": "Testing API Endpoints for GET and POST methods by simulating requets.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40951541"
+	},
+	"item": [
+		{
+			"name": "get all actions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Check if happy path\", function () {\r",
+							"  const response = pm.response.json();\r",
+							"  pm.response.to.have.status(200);\r",
+							"  pm.response.to.be.ok;\r",
+							"  pm.response.to.be.json;\r",
+							"  pm.expect(response[0].id).to.eql(1);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/actions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"actions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Action: Happy Path",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"happy path\", function () {\r",
+							"  const response = pm.response.json();\r",
+							"  pm.response.to.have.status(201);\r",
+							"  pm.response.to.be.json;\r",
+							"  pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"  pm.expect(pm.response.text()).to.include(\"action\");\r",
+							"  pm.expect(pm.response.text()).to.include(\"date\");\r",
+							"  pm.expect(pm.response.text()).to.include(\"points\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"Testing\",\r\n    \"date\": \"2021-03-12\",\r\n    \"points\": 30\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/actions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"actions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Action: 400 Bad Request Empty Fields",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"400 Bad Request\", function () {\r",
+							"  const response = pm.response.body;\r",
+							"  pm.response.to.have.status(400);\r",
+							"  pm.expect(pm.response.text()).to.include(\"\\\"action\\\" is not allowed to be empty\");\r",
+							"  \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"\",\r\n    \"date\": \"\",\r\n    \"points\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/actions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"actions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Action: 400 Bad Request Syntax Error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"400 Bad Request Syntax Error\", function () {\r",
+							"  const response = pm.response.body;\r",
+							"  pm.response.to.have.status(400);\r",
+							"  pm.expect(pm.response.text()).to.include(\"Unexpected token\");\r",
+							"  \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"action\": \"\",\r\n    \"date\": \"2023-12-12\",\r\n    \"points\":\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/actions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"actions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

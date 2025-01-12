@@ -10,6 +10,10 @@ app.use(cors());
 
 // centerlized error handling
 app.use((err, req, res, next) => {
+  if (err instanceof SyntaxError && err.status == 400 && 'body' in err) {
+    console.error(err)
+    return res.status(400).send({ status: 400, message: err.message })
+  }
   console.error(err.stack)
   res.status(500).json({ error: 'Internal Server Error', message:err.message })
 })
@@ -78,6 +82,14 @@ const schema = Joi.object({
   points: Joi.number().integer().min(5).max(200).required()
 })
 
+/*
+const schema = Joi.object({
+  action: Joi.string().min(3).max(50).required(),
+  date: Joi.date().iso().required(),
+  points: Joi.number().integer().min(5).max(200).required()
+})
+*/
+
 
 
 // ROUTES
@@ -104,6 +116,7 @@ app.post('/api/actions', (req, res) => {
     res.status(400).send(result.error.details[0].message)
     return
   }
+
 
   const action = actionService.addAction(req.body)
   res.status(201).json(action)
