@@ -137,3 +137,11 @@ SUSTAINABILITY-TRACKER
 - ```src/app/model```: json data structure
 - ```src/app/services```: routing 
 - ```public```: assets (svg, images, etc)
+
+
+## Running unit tests:
+Run the following command to start:
+```bash
+npm run tests
+```
+the files with specs.ts extension hold the default tests
