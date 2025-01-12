@@ -1,8 +1,10 @@
 # SustainabilityTracker 
 
+This tracker is a basic system to track and display sustainability actions. This project consists of two parts: the frontend and the backend. The frontend is built using Angular, and the backend is built using Node.js and Express.js. Together, they provide a platform for users to mangage and monitor their sustainability efforts.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
 
-This project consists of two parts: the frontend and the backend. The frontend is built using Angular, and the backend is built using Node.js and Express.js. Together, they provide a platform to track sustainability actions.
+
 
 ## Working Demo Video
 [Demo Video](https://drive.google.com/file/d/1jcnP34lMdCBkG9Y0A3ZF9NTkgCvFNVM8/view?usp=sharing) contains a run through of the website's basic features and layout.
