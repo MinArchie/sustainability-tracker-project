@@ -104,6 +104,8 @@ Using the <b>Postman Desktop Application</b> or <b>VS Code Extension</b>, follow
 - Import [test collection](/functional_tests/Sustainability%20Tracker%20API%20Tests.postman_collection.json) (/functional_tests/)into Postman. 
 - Run Collection
 
+![PostmanAPI](https://github.com/user-attachments/assets/c9fc561b-72aa-431a-bfb5-b4fa41da4580)
+
 
 <br />
 
