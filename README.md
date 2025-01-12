@@ -44,27 +44,14 @@ Install Backend Dependencies.
 npm install
 ```
 
+```npm install``` should automatically take care of installing any dependencies. 
 ```package.json``` contains list of dependencies.
-```npm install``` should automatically take care of installing any dependencies. But if faced with any issues of missing packages, can still follow these commands to install:
 
-- install express js
-    ```bash
-    npm install express
-    ```
+If faced with any issues regarding missing packages, can still follow this commands to install all of them:
 
-- install joi (validator)
+- install ```express.js```, ```joi``` (validator), ```cors``` (for allowing api to be used), ```nodemon``` (nodemon, optional for live-reloading).
     ```bash
-    npm install joi
-    ```
-
-- install cors (for allowing api to be used)
-    ```bash
-    npm install cors
-    ```
-
-- install nodemon (node monitor) [optional for live-reloading] 
-    ```bash
-    npm install nodemon
+    npm install express joi cors nodemon
     ```
 
 ### Running the Server
