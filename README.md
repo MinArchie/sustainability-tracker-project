@@ -1,6 +1,12 @@
 # SustainabilityTracker 
 
 This tracker is a basic system to track and display sustainability actions. This project consists of two parts: the frontend and the backend. The frontend is built using Angular, and the backend is built using Node.js and Express.js. Together, they provide a platform for users to mangage and monitor their sustainability efforts.
+1. Frontend:
+    - List sustainability actions in a table
+    - Add new sustainability action
+2. Backend:
+    - Add and fetch sustainability actions via API
+    - JSON file storage for data persistence
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
 
@@ -9,14 +15,6 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 ## Working Demo Video
 [Demo Video](https://drive.google.com/file/d/1jcnP34lMdCBkG9Y0A3ZF9NTkgCvFNVM8/view?usp=sharing) contains a run through of the website's basic features and layout.
 
-## Features
-### Frontend
-- List sustainability actions in a table
-- Add new sustainability action
-- User-friendly interface
-### Backend
-- Add and fetch sustainability actions via API
-- JSON file storage for data persistence
 
 ## Prerequisits
 - [Node.js](https://nodejs.org/) (version 22.x or higher)
@@ -64,27 +62,6 @@ Core Dependecies:
 
     Ensure server is running before attempting to run the website.
 
-### API Endpoints
-- ```GET:``` ```/api/actions```: Fetch all sustainability actions
-    - Response Body Sample:
-        ```json
-        {
-            "id": 1,
-            "action": "Carpooling",
-            "date": "2024-08-12",
-            "points": 20
-        }
-        ```
-- ```POST:``` ```/api/actions```: Add a new sustainability action
-    - Request Body Sample:
-        ```json
-        {
-            "action": "Carpooling",
-            "date": "2024-08-12",
-            "points": 20
-        }
-        ```
-
 
 ## Frontend: Quick Start
 1. Navigate to Frontend Folder
@@ -104,6 +81,29 @@ ng serve --open
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+
+
+## Running Unit Tests:
+Run the following command to start:
+```bash
+cd frontend
+
+npm run test
+```
+The files with ```.specs.ts``` extension hold the default tests
+
+## Running Functional Tests for API Endpoints
+Using the <b>Postman Desktop Application</b> or <b>VS Code Extension</b>, follow these steps to vefiy api endpoints:
+- Start the backend server 
+    ```bash
+    cd sustainability-tracker-api
+
+    node index.js
+    ```
+- Import [test collection](/functional_tests/Sustainability%20Tracker%20API%20Tests.postman_collection.json) (/functional_tests/)into Postman. 
+- Run Collection
+
 
 
 ## Project Structure
@@ -141,18 +141,3 @@ SUSTAINABILITY-TRACKER
 - ```src/app/model```: json data structure
 - ```src/app/services```: routing 
 - ```public```: assets (svg, images, etc)
-
-
-## Running Unit Tests:
-Run the following command to start:
-```bash
-cd frontend
-npm run test
-```
-The files with ```.specs.ts``` extension hold the default tests
-
-## Running Functional Tests for API Endpoints
-Using the <b>Postman Desktop Application</b> or <b>VS Code Extension</b>, follow these steps to vefiy api endpoints:
-- Start the server 
-- Import [test collection](/functional_tests/Sustainability%20Tracker%20API%20Tests.postman_collection.json) into Postman. 
-- Run Collection
