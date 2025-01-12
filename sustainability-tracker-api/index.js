@@ -8,6 +8,12 @@ const app = express()
 app.use(express.json())
 app.use(cors());
 
+// centerlized error handling
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).json({ error: 'Internal Server Error', message:err.message })
+})
+
 class ActionService {
   constructor(dataFile) {
     this.dataFile = dataFile
@@ -33,6 +39,10 @@ class ActionService {
   // return json data
   getActions() {
     return this.actions
+  }
+
+  getActionById(id) {
+    return this.actions.find(action => action.id === id)
   }
 
   // add into json file
@@ -73,7 +83,17 @@ const schema = Joi.object({
 // ROUTES
 // get all actions
 app.get('/api/actions', (req, res) => {
-  res.send(actionService.getActions())
+  res.json(actionService.getActions())
+})
+
+// get action by id
+app.get('/api/actions/:id', (req, res) => {
+  const action = actionService.getActionById(parseInt(req.params.id))
+  if (!action) {
+    res.status(404).json({ error: 'Not Found', message: 'Action not Found' })
+  } else {
+    res.status(200).json(action)
+  }
 })
 
 // post an action
@@ -86,7 +106,7 @@ app.post('/api/actions', (req, res) => {
   }
 
   const action = actionService.addAction(req.body)
-  res.send(action)
+  res.status(201).json(action)
 })
 
 
