@@ -44,7 +44,8 @@ Install Backend Dependencies.
 npm install
 ```
 
-```package.json``` contains list of dependencies, if faced with any issues, can still follow this to download:
+```package.json``` contains list of dependencies.
+```npm install``` should automatically take care of installing any dependencies. But if faced with any issues of missing packages, can still follow these commands to install:
 
 - install express js
     ```bash
@@ -56,7 +57,7 @@ npm install
     npm install joi
     ```
 
-- install cors (allow api to be used)
+- install cors (for allowing api to be used)
     ```bash
     npm install cors
     ```
@@ -71,6 +72,8 @@ npm install
     ```bash
     nodemon index.js
     ```
+    Use ```node index.js``` if nodemon is not installed.
+   
     Server runs on ```localhost:3000``` by default, unless port is specifed by PATH.
 
     Ensure server is running before attempting to run the website.
@@ -98,11 +101,10 @@ npm install
     ```bash
     npm install
     ```
-
-    bootstrap:
-    ```bash
-    npm i bootstrap@5.3.3
-    ```
+    - All dependencies should be installed. If faced with any missing dependencies for bootstrap, can follow this to install bootstrap
+        ```bash
+        npm i bootstrap@5.3.3
+        ```
 
 
 ### Running the Application
