@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "action": "Carpooling Hi",
+    "action": "Carpooling",
     "date": "2025-01-08",
     "points": 50
   },
@@ -136,5 +136,11 @@
     "action": "Participating in Earth Hour",
     "date": "2025-02-26",
     "points": 30
+  },
+  {
+    "id": 24,
+    "action": "Solar Plant",
+    "date": "2025-01-11",
+    "points": 100
   }
 ]
