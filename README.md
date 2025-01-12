@@ -10,7 +10,7 @@ A basic system to track and display sustainability actions. The frontend is buil
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
 
-
+<br />
 
 ## Working Demo Video
 [Demo Video](https://drive.google.com/file/d/1jcnP34lMdCBkG9Y0A3ZF9NTkgCvFNVM8/view?usp=sharing) contains a run through of the website's basic features and layout.
@@ -22,7 +22,9 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 - [Angular CLI](https://angular.io/cli) (version 17.x or higher)
 - [Express.js](https://expressjs.com/) (Backend)
 
-## Usage
+<br />
+
+# Usage
 Clone the repository and navigate to repository:
 ```bash
 git clone https://github.com/MinArchie/sustainability-tracker-project.git
@@ -30,9 +32,9 @@ git clone https://github.com/MinArchie/sustainability-tracker-project.git
 cd sustainability-tracker-project
 ```
 
-## Backend: Quick Start
+## 1. Backend: Quick Start
 
-### Installation 
+### a. Installation 
 ```bash
 cd sustainability-tracker-api
 
@@ -47,7 +49,7 @@ npm install
 - ```cors``` (for allowing api to be used)
 - ```nodemon``` (nodemon, optional for live-reloading).
 
-### Running the Server
+### b. Running the Server
 ```bash
 node index.js
 ```
@@ -58,8 +60,8 @@ Server runs on ```localhost:3000``` by default, unless port is specifed by PATH.
 Ensure server is running before attempting to run the website.
 
 
-## Frontend: Quick Start
-### Installation
+## 2. Frontend: Quick Start
+### a. Installation
 
 ```bash
 cd frontend
@@ -70,14 +72,14 @@ npm install
 - All dependencies should be installed. Core Dependency is ```Bootstrap```
 
 
-### Running the Application
+### b. Running the Application
 ```bash
 ng serve --open
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-
+<br />
 
 ## Running Unit Tests:
 Run the following command to start:
@@ -100,6 +102,7 @@ Using the <b>Postman Desktop Application</b> or <b>VS Code Extension</b>, follow
 - Run Collection
 
 
+<br />
 
 ## Project Structure
 ### Backend
