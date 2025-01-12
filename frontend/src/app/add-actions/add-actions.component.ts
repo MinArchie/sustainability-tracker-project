@@ -16,6 +16,7 @@ export class AddActionsComponent {
   addActionForm!: FormGroup
   errorMessage: string = ''
   showSuccessModal = false  // Control Display of Success Modal
+  maxDate: string
 
   constructor(
     private fb: FormBuilder,
@@ -23,6 +24,7 @@ export class AddActionsComponent {
     private router: Router
   ) {
     this.initateForm()
+    this.maxDate = this.getCurrentDate();
   }
 
   
@@ -40,6 +42,14 @@ export class AddActionsComponent {
       date: ['', Validators.required],
       points: ['', [Validators.required, Validators.min(5), Validators.max(200)]]
     })
+  }
+
+  getCurrentDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = (today.getMonth() + 1).toString().padStart(2, '0');
+    const day = today.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
   }
 
   onSubmit() {

@@ -28,7 +28,7 @@
             <!-- Date Field -->
             <div class="input-group">
                 <input type="date" placeholder="" [class.invalid]="addActionForm.get('date')?.invalid && addActionForm.get('date')?.touched"
-                       formControlName="date">
+                       formControlName="date" [attr.max]="maxDate">
                 <label for="date">Date</label>
                 <!-- Error Messages for Date Field -->
                 <div class="error-message" *ngIf="addActionForm.get('date')?.invalid && addActionForm.get('date')?.touched">
