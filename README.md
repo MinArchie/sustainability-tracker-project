@@ -70,9 +70,9 @@ npm install
 ### Running the Server
 1. Start the server
     ```bash
-    nodemon index.js
+    node index.js
     ```
-    Use ```node index.js``` if nodemon is not installed.
+    Use ```nodemon index.js``` if nodemon is installed.
    
     Server runs on ```localhost:3000``` by default, unless port is specifed by PATH.
 
