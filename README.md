@@ -33,46 +33,41 @@ cd sustainability-tracker-project
 ## Backend: Quick Start
 
 ### Installation 
-Navigate to the backend folder:
 ```bash
 cd sustainability-tracker-api
-```
 
-Install Backend Dependencies.
-```bash
 npm install
 ```
 
 ```npm install``` should automatically take care of installing any dependencies. 
 
-Core Dependecies:
+<b>Core Dependecies:</b>
 - ```express.js```
 - ```joi``` (validator)
 - ```cors``` (for allowing api to be used)
 - ```nodemon``` (nodemon, optional for live-reloading).
 
 ### Running the Server
-1. Start the server
-    ```bash
-    node index.js
-    ```
-    Use ```nodemon index.js``` if nodemon is installed.
-   
-    Server runs on ```localhost:3000``` by default, unless port is specifed by PATH.
+```bash
+node index.js
+```
+Use ```nodemon index.js``` if nodemon is installed.
 
-    Ensure server is running before attempting to run the website.
+Server runs on ```localhost:3000``` by default, unless port is specifed by PATH.
+
+Ensure server is running before attempting to run the website.
 
 
 ## Frontend: Quick Start
-1. Navigate to Frontend Folder
-    ```bash
-    cd frontend
-    ```
-2. Install Dependencies.
-    ```bash
-    npm install
-    ```
-    - All dependencies should be installed. Core Dependency is ```Bootstrap```
+### Installation
+
+```bash
+cd frontend
+
+npm install
+```
+
+- All dependencies should be installed. Core Dependency is ```Bootstrap```
 
 
 ### Running the Application
